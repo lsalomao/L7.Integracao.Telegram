@@ -1,0 +1,10 @@
+﻿{
+  "profiles": {
+    "L7.Test": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

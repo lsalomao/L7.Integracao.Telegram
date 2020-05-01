@@ -1,0 +1,9 @@
+C:\Projetos\ProjetosSalomao\L7.Integracao\L7.Integracao.Domain\bin\Debug\netstandard2.0\L7.Integracao.Domain.deps.json
+C:\Projetos\ProjetosSalomao\L7.Integracao\L7.Integracao.Domain\bin\Debug\netstandard2.0\L7.Integracao.Domain.dll
+C:\Projetos\ProjetosSalomao\L7.Integracao\L7.Integracao.Domain\bin\Debug\netstandard2.0\L7.Integracao.Domain.pdb
+C:\Projetos\ProjetosSalomao\L7.Integracao\L7.Integracao.Domain\obj\Debug\netstandard2.0\L7.Integracao.Domain.csprojAssemblyReference.cache
+C:\Projetos\ProjetosSalomao\L7.Integracao\L7.Integracao.Domain\obj\Debug\netstandard2.0\L7.Integracao.Domain.AssemblyInfoInputs.cache
+C:\Projetos\ProjetosSalomao\L7.Integracao\L7.Integracao.Domain\obj\Debug\netstandard2.0\L7.Integracao.Domain.AssemblyInfo.cs
+C:\Projetos\ProjetosSalomao\L7.Integracao\L7.Integracao.Domain\obj\Debug\netstandard2.0\L7.Integracao.Domain.dll
+C:\Projetos\ProjetosSalomao\L7.Integracao\L7.Integracao.Domain\obj\Debug\netstandard2.0\L7.Integracao.Domain.pdb
+C:\Projetos\ProjetosSalomao\L7.Integracao\L7.Integracao.Domain\obj\Debug\netstandard2.0\L7.Integracao.Domain.csproj.CoreCompileInputs.cache

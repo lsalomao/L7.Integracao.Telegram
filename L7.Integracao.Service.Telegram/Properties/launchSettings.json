@@ -1,0 +1,10 @@
+﻿{
+  "profiles": {
+    "L7.Integracao.Telegram": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
