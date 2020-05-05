@@ -8541,25 +8541,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Fadami\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Fadami07\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projetos\\ProjetosSalomao\\L7.Integracao\\L7.Integracao.WebApi\\L7.Integracao.WebApi.csproj",
+      "projectUniqueName": "D:\\Projetos\\SalomaoDev\\L7.Integracao.Telegram\\L7.Integracao.WebApi\\L7.Integracao.WebApi.csproj",
       "projectName": "L7.Integracao.WebApi",
-      "projectPath": "C:\\Projetos\\ProjetosSalomao\\L7.Integracao\\L7.Integracao.WebApi\\L7.Integracao.WebApi.csproj",
-      "packagesPath": "C:\\Users\\Fadami\\.nuget\\packages\\",
-      "outputPath": "C:\\Projetos\\ProjetosSalomao\\L7.Integracao\\L7.Integracao.WebApi\\obj\\",
+      "projectPath": "D:\\Projetos\\SalomaoDev\\L7.Integracao.Telegram\\L7.Integracao.WebApi\\L7.Integracao.WebApi.csproj",
+      "packagesPath": "C:\\Users\\Fadami07\\.nuget\\packages\\",
+      "outputPath": "D:\\Projetos\\SalomaoDev\\L7.Integracao.Telegram\\L7.Integracao.WebApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Fadami\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Fadami07\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -8573,8 +8571,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Projetos\\ProjetosSalomao\\L7.Integracao\\L7.Integracao.Domain\\L7.Integracao.Domain.csproj": {
-              "projectPath": "C:\\Projetos\\ProjetosSalomao\\L7.Integracao\\L7.Integracao.Domain\\L7.Integracao.Domain.csproj"
+            "D:\\Projetos\\SalomaoDev\\L7.Integracao.Telegram\\L7.Integracao.Domain\\L7.Integracao.Domain.csproj": {
+              "projectPath": "D:\\Projetos\\SalomaoDev\\L7.Integracao.Telegram\\L7.Integracao.Domain\\L7.Integracao.Domain.csproj"
             }
           }
         }

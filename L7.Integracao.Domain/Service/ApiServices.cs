@@ -1,5 +1,6 @@
 ﻿using L7.Integracao.Domain.Model;
 using L7.Integracao.Domain.Repository.Interfaces;
+using L7.Integracao.Domain.Service.Interface;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using RestSharp;
@@ -52,5 +53,10 @@ namespace L7.Integracao.Domain.Service
                 throw ex;
             }
         }
+
+        //Task<Order> IApiServices.PublicarOrder(Order order)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

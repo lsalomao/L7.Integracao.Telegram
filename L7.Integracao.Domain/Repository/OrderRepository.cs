@@ -1,5 +1,7 @@
-﻿using L7.Integracao.Domain.Model;
+﻿using L7.Integracao.Domain.Data;
+using L7.Integracao.Domain.Model;
 using L7.Integracao.Domain.Repository.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,34 +12,40 @@ namespace L7.Integracao.Domain.Repository
 {
     public class OrderRepository : IModelRepository<Order>
     {
+        public DataContext _context { get; }
+
+        public OrderRepository(DataContext context)
+        {
+            _context = context;
+        }
+
         public void Add(Order entity)
         {
-            throw new NotImplementedException();
+            _context.Add(entity);
         }
 
         public void Delete(Order entity)
         {
-            throw new NotImplementedException();
+            _context.Remove(entity);
         }
-
-        public Task<IEnumerable> ListarOrder()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Order> ListarOrderById(int Id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<bool> SaveChangesAsync()
-        {
-            throw new NotImplementedException();
-        }
-
         public void Update(Order entity)
         {
-            throw new NotImplementedException();
+            _context.Update(entity);
+        }
+
+        public async Task<IEnumerable> GetAll()
+        {
+            return await _context.Orders.ToListAsync();
+        }
+
+        public async Task<Order> GetById(int Id)
+        {
+            return await _context.Orders.FirstAsync(e => e.Id.Equals(Id));
+        }
+
+        public async Task<bool> SaveChangesAsync()
+        {
+            return (await _context.SaveChangesAsync()) > 0;
         }
     }
 }

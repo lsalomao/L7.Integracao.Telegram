@@ -1,5 +1,6 @@
 ﻿using L7.Integracao.Domain.Model;
 using L7.Integracao.Domain.Repository.Interfaces;
+using L7.Integracao.Domain.Service.Interface;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
@@ -16,7 +17,7 @@ namespace L7.Integracao.Domain.Service
         private readonly ILogger<SenderServices> _logger;
         ConfiguracaoMsg _configuracaoMsg;
 
-        public SenderServices(IConfiguracaoMsgRepository repository, ILogger<SenderServices> logger)        
+        public SenderServices(IConfiguracaoMsgRepository repository, ILogger<SenderServices> logger)
         {
             _repository = repository;
             _logger = logger;
@@ -38,6 +39,16 @@ namespace L7.Integracao.Domain.Service
 
                 using var conexao = _connectionFactory.CreateConnection();
                 using var canal = conexao.CreateModel();
+
+                canal.QueueDeclare(queue: _configuracaoMsg.NomeFila, durable: true, exclusive: false, autoDelete: false, arguments: null);
+                canal.ExchangeDeclare(exchange: _configuracaoMsg.NomeTopico, type: ExchangeType.Topic, durable: true, arguments: null);
+                canal.QueueBind(queue: _configuracaoMsg.NomeFila, exchange: _configuracaoMsg.NomeTopico, routingKey: string.Empty);
+
+
+                //canal.QueueDeclare(queue: configuracao.NomeFila, durable: true, exclusive: false, autoDelete: false, arguments: null);
+                //canal.ExchangeDeclare(exchange: configuracao.NomeTopico, type: ExchangeType.Topic, durable: true, arguments: null);
+                //canal.QueueBind(queue: configuracao.NomeFila, exchange: configuracao.NomeTopico, routingKey: string.Empty);
+
 
                 byte[] bufferPayload = Encoding.ASCII.GetBytes(JsonConvert.SerializeObject(order));
 

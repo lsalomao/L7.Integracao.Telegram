@@ -1,4 +1,5 @@
 using L7.Integracao.Domain.Service;
+using L7.Integracao.Domain.Service.Interface;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
@@ -10,12 +11,12 @@ namespace L7.Integracao.Service.Controlador
     public class Worker : BackgroundService
     {
         private readonly ILogger<Worker> _logger;
-        private readonly IServiceL7 _serviceL7;
+        private readonly IServiceL7 receiverServices;
 
-        public Worker(ILogger<Worker> logger, IServiceL7 serviceL7)
+        public Worker(ILogger<Worker> logger, IServiceL7 receiverServices)
         {
             _logger = logger;
-            _serviceL7 = serviceL7;
+            this.receiverServices = receiverServices;
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -26,7 +27,7 @@ namespace L7.Integracao.Service.Controlador
                 {
                     _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
 
-                    Task task = Task.Run(async () => { await _serviceL7.Execute(); });
+                    Task task = Task.Run(async () => { await receiverServices.Execute(); });
                     task.Wait();
                 }
                 catch (Exception ex)

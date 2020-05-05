@@ -2,6 +2,7 @@ using L7.Integracao.Domain.Data;
 using L7.Integracao.Domain.Repository;
 using L7.Integracao.Domain.Repository.Interfaces;
 using L7.Integracao.Domain.Service;
+using L7.Integracao.Domain.Service.Interface;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;

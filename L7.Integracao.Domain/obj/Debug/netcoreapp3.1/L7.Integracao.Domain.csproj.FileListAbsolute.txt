@@ -10,3 +10,15 @@ C:\Projetos\ProjetosSalomao\L7.Integracao\L7.Integracao.Domain\obj\Debug\netcore
 C:\Projetos\ProjetosSalomao\L7.Integracao\L7.Integracao.Domain\obj\Debug\netcoreapp3.1\L7.Integracao.Domain.pdb
 C:\Projetos\ProjetosSalomao\L7.Integracao\L7.Integracao.Domain\obj\Debug\netcoreapp3.1\L7.Integracao.Domain.csprojAssemblyReference.cache
 C:\Projetos\ProjetosSalomao\L7.Integracao\L7.Integracao.Domain\obj\Debug\netcoreapp3.1\L7.Integracao.Domain.csproj.CoreCompileInputs.cache
+D:\Projetos\SalomaoDev\L7.Integracao.Telegram\L7.Integracao.Domain\bin\Debug\netcoreapp3.1\L7.Integracao.Domain.deps.json
+D:\Projetos\SalomaoDev\L7.Integracao.Telegram\L7.Integracao.Domain\bin\Debug\netcoreapp3.1\L7.Integracao.Domain.runtimeconfig.json
+D:\Projetos\SalomaoDev\L7.Integracao.Telegram\L7.Integracao.Domain\bin\Debug\netcoreapp3.1\L7.Integracao.Domain.runtimeconfig.dev.json
+D:\Projetos\SalomaoDev\L7.Integracao.Telegram\L7.Integracao.Domain\bin\Debug\netcoreapp3.1\L7.Integracao.Domain.dll
+D:\Projetos\SalomaoDev\L7.Integracao.Telegram\L7.Integracao.Domain\bin\Debug\netcoreapp3.1\L7.Integracao.Domain.pdb
+D:\Projetos\SalomaoDev\L7.Integracao.Telegram\L7.Integracao.Domain\obj\Debug\netcoreapp3.1\L7.Integracao.Domain.csproj.CoreCompileInputs.cache
+D:\Projetos\SalomaoDev\L7.Integracao.Telegram\L7.Integracao.Domain\obj\Debug\netcoreapp3.1\L7.Integracao.Domain.AssemblyInfoInputs.cache
+D:\Projetos\SalomaoDev\L7.Integracao.Telegram\L7.Integracao.Domain\obj\Debug\netcoreapp3.1\L7.Integracao.Domain.AssemblyInfo.cs
+D:\Projetos\SalomaoDev\L7.Integracao.Telegram\L7.Integracao.Domain\obj\Debug\netcoreapp3.1\L7.Integracao.Domain.dll
+D:\Projetos\SalomaoDev\L7.Integracao.Telegram\L7.Integracao.Domain\obj\Debug\netcoreapp3.1\L7.Integracao.Domain.pdb
+D:\Projetos\SalomaoDev\L7.Integracao.Telegram\L7.Integracao.Domain\obj\Debug\netcoreapp3.1\L7.Integracao.Domain.genruntimeconfig.cache
+D:\Projetos\SalomaoDev\L7.Integracao.Telegram\L7.Integracao.Domain\obj\Debug\netcoreapp3.1\L7.Integracao.Domain.csprojAssemblyReference.cache

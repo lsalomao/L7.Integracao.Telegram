@@ -1,12 +1,10 @@
 ﻿using L7.Integracao.Domain.Model;
-using L7.Integracao.Domain.Repository;
 using L7.Integracao.Domain.Repository.Interfaces;
+using L7.Integracao.Domain.Service.Interface;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System;
-using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -63,7 +61,7 @@ namespace L7.Integracao.Domain.Service
 
                         if (obj != null)
                         {
-                            _telegramServices.Execute(obj);
+                           // _telegramServices.Execute(obj);
 
                             canal.BasicAck(deliveryTag: ea.DeliveryTag, multiple: false);
                         }

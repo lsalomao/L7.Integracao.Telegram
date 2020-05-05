@@ -3,10 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace L7.Integracao.Domain.Service
+namespace L7.Integracao.Domain.Service.Interface
 {
-   public interface ITelegramServices
+    public interface ISenderServices
     {
-        void Execute(string mensage);
+        void Execute(Order order);
     }
 }

@@ -1,7 +1,9 @@
 using L7.Integracao.Domain.Data;
+using L7.Integracao.Domain.Model;
 using L7.Integracao.Domain.Repository;
 using L7.Integracao.Domain.Repository.Interfaces;
 using L7.Integracao.Domain.Service;
+using L7.Integracao.Domain.Service.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -20,7 +22,7 @@ namespace L7.Integracao.WebApi
             //services.AddEntityFrameworkSqlServer().AddDbContext<DataContext>(x => x.UseSqlServer(Configuration.DataBase.ConnectionStringDefault));
             services.AddDbContext<DataContext>(x => x.UseSqlServer(Configuration.DataBase.ConnectionStringDefault));
 
-            services.AddScoped<IRepository, ModelRespotory>();
+            services.AddScoped<IModelRepository<Order>, OrderRepository>();
             services.AddScoped<ISenderServices, SenderServices>();
             services.AddScoped<IConfiguracaoMsgRepository, ConfiguracaoMsgRepository>();
 

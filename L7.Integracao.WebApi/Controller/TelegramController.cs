@@ -6,6 +6,7 @@ using L7.Integracao.Domain.Model;
 using L7.Integracao.Domain.Repository;
 using L7.Integracao.Domain.Repository.Interfaces;
 using L7.Integracao.Domain.Service;
+using L7.Integracao.Domain.Service.Interface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,10 +16,10 @@ namespace L7.Integracao.WebApi.Controller
     [ApiController]
     public class TelegramController : ControllerBase
     {
-        public readonly IRepository _repository;
+        public readonly IModelRepository<Order> _repository;
         private readonly ISenderServices _senderServices;
 
-        public TelegramController(IRepository repository, ISenderServices senderServices)
+        public TelegramController(IModelRepository<Order> repository, ISenderServices senderServices)
         {
             _repository = repository;
             _senderServices = senderServices;
@@ -53,7 +54,7 @@ namespace L7.Integracao.WebApi.Controller
         {
             try
             {
-                var result = await _repository.ListarOrderById(id);
+                var result = await _repository.GetById(id);
 
                 return Ok(result);
             }
@@ -69,7 +70,7 @@ namespace L7.Integracao.WebApi.Controller
         {
             try
             {
-                var result = await _repository.ListarOrder();
+                var result = await _repository.GetAll();
 
                 return Ok(result);
             }

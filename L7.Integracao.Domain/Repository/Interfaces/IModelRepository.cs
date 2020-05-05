@@ -13,9 +13,8 @@ namespace L7.Integracao.Domain.Repository.Interfaces
         void Delete(T entity);
 
         // Obter order
-        Task<IEnumerable> ListarOrder();
-        Task<T> ListarOrderById(int Id);
-
+        Task<IEnumerable> GetAll();
+        Task<T> GetById(int Id);
 
         Task<bool> SaveChangesAsync();
     }
