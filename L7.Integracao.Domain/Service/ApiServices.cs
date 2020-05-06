@@ -1,6 +1,7 @@
 ﻿using L7.Integracao.Domain.Model;
 using L7.Integracao.Domain.Repository.Interfaces;
 using L7.Integracao.Domain.Service.Interface;
+using L7.Integracao.Domain.ValueObjetc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using RestSharp;
@@ -26,15 +27,16 @@ namespace L7.Integracao.Domain.Service
             //_logger = logger;
         }
 
-       // public async Task<Order> PublicarOrder(Order order)
-        public Order PublicarOrder(Order order)
+        public Order PublicarOrder(OrderVO order)
         {
            // _logger.LogInformation("Chegamos.");
 
             //_configuracaoMsg = _repository.GetFirst();
 
             string urlServiço = "http://localhost:5000/api/telegram";
+                        
             
+
 
             try
             {

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using L7.Integracao.Domain.Data;
 using L7.Integracao.Domain.Extensoes;
+using L7.Integracao.Domain.Model;
 using L7.Integracao.Domain.Repository;
 using L7.Integracao.Domain.Repository.Commands;
 using L7.Integracao.Domain.Repository.Interfaces;
@@ -32,13 +33,11 @@ namespace L7.Integracao.Service.Telegram
                     services.AddSingleton(sp => new TelegramBotClient(Configuration.Controle.BotKey));
 
                     services.AddSingleton(sp => sp.GetRequiredService<TelegramBotClient>().GetMeAsync().Sync());
-                                        
+
                     services.AddSingleton2<ITelegramServices, TelegramServices>();
-                                        
+
+                    services.AddSingleton<IModelRepository<Order>, OrderRepository>();
                     services.AddSingleton<ICommand, OrderCommand>();
-
-                    //services.AddScoped<IConfiguracaoMsgRepository, ConfiguracaoMsgRepository>();
-
 
                     services.AddHostedService<Worker>();
                 });

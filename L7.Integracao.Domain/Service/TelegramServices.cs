@@ -68,26 +68,9 @@ namespace L7.Integracao.Domain.Service
 
         public Task Stop(CancellationToken cancellationToken) => Task.CompletedTask;
 
-
-
-        //public void Execute(string mensagem)
+        //public void EnviarRetorno(object mensagemRetorno)
         //{
-        //    _logger.LogInformation("Enviar mensage");
-
-
-        //   // var order = JsonConvert.DeserializeObject<Order>(mensagem);
-
-
-
-
-        //    var msg = telegramBot.SendTextMessageAsync(
-        //                             chatId: "865697320",
-        //                             text: mensagem,
-        //                             replyMarkup: new ReplyKeyboardRemove()
-        //                       ).Result;
-
+        //    this.botClient.SendTextMessageAsync(message.Chat.Id, $"<pre> Order Criada com sucesso. Número: {mensagemRetorno}</pre>").Sync();
         //}
-
-
     }
 }

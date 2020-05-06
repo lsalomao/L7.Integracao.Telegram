@@ -1,14 +1,10 @@
+using L7.Integracao.Domain.Service.Interface;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using L7.Integracao.Domain.Model;
-using L7.Integracao.Domain.Service;
-using L7.Integracao.Domain.Service.Interface;
-using L7.Integracao.Service.Telegram.Controller;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Telegram.Bot;
 using Telegram.Bot.Types.Enums;
 
@@ -37,9 +33,9 @@ namespace L7.Integracao.Service.Telegram
             UpdateType[] updateTypes = telegramServices.RequiredUpdates.ToArray();
 
             this.botClient.StartReceiving(allowedUpdates: updateTypes, cancellationToken: stoppingToken);
+            
 
             await this.MainThread(stoppingToken);
-
 
             await telegramServices.Stop(stoppingToken);
 
@@ -51,7 +47,6 @@ namespace L7.Integracao.Service.Telegram
         {
             while (!cancellationToken.IsCancellationRequested)
             {
-                //_logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
                 await Task.Delay(500, cancellationToken);
             }
         }

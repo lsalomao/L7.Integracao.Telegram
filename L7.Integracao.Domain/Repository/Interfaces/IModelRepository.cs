@@ -16,6 +16,8 @@ namespace L7.Integracao.Domain.Repository.Interfaces
         Task<IEnumerable> GetAll();
         Task<T> GetById(int Id);
 
+        T GetByIdTelegram(string IdTelegram);
+
         Task<bool> SaveChangesAsync();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Polly;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -42,13 +43,44 @@ namespace L7.Integracao.Domain.Extensoes
                     if (where(message.Entities[i]))
                     {
                         return (
-                                    message.Entities[i], 
+                                    message.Entities[i],
                                     message.EntityValues.ToArray()[i]
                                 );
                     }
                 }
             }
             return (null, null);
+        }
+
+        public static IServiceCollection AddTransientWithRetry<TService, TException>(
+              this IServiceCollection services,
+              Func<IServiceProvider, TService> implementationFactory,
+              int retryCount = 3
+          )
+      where TService : class
+      where TException : Exception
+        {
+            services.AddTransient<TService>(sp =>
+            {
+
+                TService service = default(TService);
+
+                var policy = Policy
+                  .Handle<TException>()
+                  .WaitAndRetry(retryCount, retryAttempt =>
+                        TimeSpan.FromSeconds(Math.Pow(2, retryAttempt))
+                  );
+
+                policy.Execute(() =>
+                {
+                    service = implementationFactory(sp);
+                });
+
+                return service;
+
+            });
+
+            return services;
         }
 
     }

@@ -26,6 +26,10 @@ namespace L7.Test
             while (!stoppingToken.IsCancellationRequested)
             {
                 _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
+
+                var order = await _orderRepository.GetById(23);
+
+
                 await Task.Delay(1000, stoppingToken);
             }
         }

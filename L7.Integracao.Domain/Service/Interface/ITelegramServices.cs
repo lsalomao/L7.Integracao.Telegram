@@ -8,11 +8,10 @@ using Telegram.Bot.Types.Enums;
 
 namespace L7.Integracao.Domain.Service.Interface
 {
-   public interface ITelegramServices
+    public interface ITelegramServices
     {
         Task Inicializar(CancellationToken cancellationToken);
         Task Stop(CancellationToken cancellationToken);
-
-        IEnumerable<UpdateType> RequiredUpdates { get; }        
+        IEnumerable<UpdateType> RequiredUpdates { get; }
     }
 }

@@ -142,3 +142,4 @@ D:\Projetos\SalomaoDev\L7.Integracao.Telegram\L7.Integracao.Service.Telegram\obj
 D:\Projetos\SalomaoDev\L7.Integracao.Telegram\L7.Integracao.Service.Telegram\obj\Debug\netcoreapp3.1\L7.Integracao.Service.Telegram.dll
 D:\Projetos\SalomaoDev\L7.Integracao.Telegram\L7.Integracao.Service.Telegram\obj\Debug\netcoreapp3.1\L7.Integracao.Service.Telegram.pdb
 D:\Projetos\SalomaoDev\L7.Integracao.Telegram\L7.Integracao.Service.Telegram\obj\Debug\netcoreapp3.1\L7.Integracao.Service.Telegram.genruntimeconfig.cache
+D:\Projetos\SalomaoDev\L7.Integracao.Telegram\L7.Integracao.Service.Telegram\bin\Debug\netcoreapp3.1\Polly.dll

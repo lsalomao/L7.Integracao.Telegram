@@ -15,5 +15,12 @@ namespace L7.Integracao.Domain.Data
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<ConfiguracaoMsg> ConfiguracoesMsg { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Order>().Property(p => p.DataCadastro).HasColumnType("datetime").HasDefaultValueSql("getdate()");
+            modelBuilder.Entity<Cliente>().Property(p => p.DataCadastro).HasColumnType("datetime").HasDefaultValueSql("getdate()");
+            modelBuilder.Entity<Usuario>().Property(p => p.DataCadastro).HasColumnType("datetime").HasDefaultValueSql("getdate()");
+        }
     }
 }

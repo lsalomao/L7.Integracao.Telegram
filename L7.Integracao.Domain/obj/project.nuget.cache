@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Bes6lheOgkUwntPGkI7i0qzKdVaIs5rCdHaxFIV86RoRdnbmStWYxrLza9Gjf0CiYGBlbYX71aB7gR/tZMMELg==",
+  "dgSpecHash": "wfZ7lpmEwim48JViVWsXr7cIk0Z6vfJfulL8c0d2npJ6NQcB0bX8hoDVsTNUkOHNA8uImHMUIS6kedfEd5pbjQ==",
   "success": true,
   "projectFilePath": "D:\\Projetos\\SalomaoDev\\L7.Integracao.Telegram\\L7.Integracao.Domain\\L7.Integracao.Domain.csproj",
   "expectedPackageFiles": [
@@ -37,6 +37,7 @@
     "C:\\Users\\Fadami07\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
     "C:\\Users\\Fadami07\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Users\\Fadami07\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\Fadami07\\.nuget\\packages\\polly\\7.2.1\\polly.7.2.1.nupkg.sha512",
     "C:\\Users\\Fadami07\\.nuget\\packages\\rabbitmq.client\\6.0.0\\rabbitmq.client.6.0.0.nupkg.sha512",
     "C:\\Users\\Fadami07\\.nuget\\packages\\restsharp\\106.10.1\\restsharp.106.10.1.nupkg.sha512",
     "C:\\Users\\Fadami07\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",

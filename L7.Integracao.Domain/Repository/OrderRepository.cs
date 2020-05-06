@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -40,12 +41,21 @@ namespace L7.Integracao.Domain.Repository
 
         public async Task<Order> GetById(int Id)
         {
-            return await _context.Orders.FirstAsync(e => e.Id.Equals(Id));
+            IQueryable<Order> query = _context.Orders.Include(c => c.Cliente);
+
+            //   return await _context.Orders.FirstAsync(e => e.Id.Equals(Id));
+
+            return await query.FirstAsync(e => e.Id.Equals(Id));
         }
 
         public async Task<bool> SaveChangesAsync()
         {
             return (await _context.SaveChangesAsync()) > 0;
+        }
+
+        public Order GetByIdTelegram(string IdTelegram)
+        {
+            throw new NotImplementedException();
         }
     }
 }

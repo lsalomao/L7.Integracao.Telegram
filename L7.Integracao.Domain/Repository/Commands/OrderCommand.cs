@@ -1,6 +1,8 @@
 ﻿using L7.Integracao.Domain.Extensoes;
 using L7.Integracao.Domain.Model;
 using L7.Integracao.Domain.Service;
+using L7.Integracao.Domain.ValueObjetc;
+using System;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 
@@ -23,15 +25,6 @@ namespace L7.Integracao.Domain.Repository.Commands
         {
             User userToIdentify = message.ReplyToMessage?.From;
 
-            //if (userToIdentify == null && message.Entities.IsNotNullAndIsNotEmpty())
-            //{
-            //    (MessageEntity mentionEntity, string mentionText) = message.GetFirstEntityOf(it => it.Type == Telegram.Bot.Types.Enums.MessageEntityType.Mention);
-            //    if (mentionEntity != null)
-            //    {
-            //        //this.botClient.GetChatMemberAsync(message.Chat.Id, )
-            //    }
-            //}
-
             if (userToIdentify == null)
             {
                 userToIdentify = message.From;
@@ -43,11 +36,9 @@ namespace L7.Integracao.Domain.Repository.Commands
 
                 var mensagem = message.Text.Split('|')[1];
 
-                var resultado = apiServices.PublicarOrder(new Order() { Descricao = mensagem });
+                var resultado = apiServices.PublicarOrder(new OrderVO() { Descricao = mensagem, IdTelegram = Convert.ToString(message.From.Id) });
 
-                string messageText = Newtonsoft.Json.JsonConvert.SerializeObject(resultado, Newtonsoft.Json.Formatting.Indented);
-
-                this.botClient.SendTextMessageAsync(message.Chat.Id, $"<pre>{messageText}</pre>",
+                this.botClient.SendTextMessageAsync(message.Chat.Id, $"<pre> Order Criada com sucesso. Número: {resultado.Id}</pre>",
                     parseMode: Telegram.Bot.Types.Enums.ParseMode.Html,
                     replyToMessageId: message.MessageId
                 ).Sync();

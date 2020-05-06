@@ -268,3 +268,4 @@ D:\Projetos\SalomaoDev\L7.Integracao.Telegram\L7.Integracao.WebApi\obj\Debug\net
 D:\Projetos\SalomaoDev\L7.Integracao.Telegram\L7.Integracao.WebApi\obj\Debug\netcoreapp3.1\L7.Integracao.WebApi.dll
 D:\Projetos\SalomaoDev\L7.Integracao.Telegram\L7.Integracao.WebApi\obj\Debug\netcoreapp3.1\L7.Integracao.WebApi.pdb
 D:\Projetos\SalomaoDev\L7.Integracao.Telegram\L7.Integracao.WebApi\obj\Debug\netcoreapp3.1\L7.Integracao.WebApi.genruntimeconfig.cache
+D:\Projetos\SalomaoDev\L7.Integracao.Telegram\L7.Integracao.WebApi\bin\Debug\netcoreapp3.1\Polly.dll

@@ -13,48 +13,27 @@ namespace L7.Integracao.Domain.Service
 {
     public class SenderServices : ISenderServices
     {
-        private readonly IConfiguracaoMsgRepository _repository;
         private readonly ILogger<SenderServices> _logger;
-        ConfiguracaoMsg _configuracaoMsg;
+        private readonly IModel rabbitMQModel;
+        private readonly ConfiguracaoMsg configuracaoMsg;
 
-        public SenderServices(IConfiguracaoMsgRepository repository, ILogger<SenderServices> logger)
+        public SenderServices(ILogger<SenderServices> logger, ConfiguracaoMsg configuracaoMsg, IModel rabbitMQModel)
         {
-            _repository = repository;
             _logger = logger;
+            this.rabbitMQModel = rabbitMQModel;
+            this.configuracaoMsg = configuracaoMsg;
         }
 
 
-        public void Execute(Order order)
+        public void Execute(object notification)
         {
             try
             {
-                _configuracaoMsg = _repository.GetFirst();
+                byte[] bufferPayload = Encoding.ASCII.GetBytes(JsonConvert.SerializeObject(notification, Formatting.Indented));
 
-                var _connectionFactory = new ConnectionFactory()
-                {
-                    HostName = _configuracaoMsg.UrlMsg,
-                    UserName = _configuracaoMsg.Login,
-                    Password = _configuracaoMsg.Senha
-                };
+                var prop = rabbitMQModel.CreateBasicProperties();
 
-                using var conexao = _connectionFactory.CreateConnection();
-                using var canal = conexao.CreateModel();
-
-                canal.QueueDeclare(queue: _configuracaoMsg.NomeFila, durable: true, exclusive: false, autoDelete: false, arguments: null);
-                canal.ExchangeDeclare(exchange: _configuracaoMsg.NomeTopico, type: ExchangeType.Topic, durable: true, arguments: null);
-                canal.QueueBind(queue: _configuracaoMsg.NomeFila, exchange: _configuracaoMsg.NomeTopico, routingKey: string.Empty);
-
-
-                //canal.QueueDeclare(queue: configuracao.NomeFila, durable: true, exclusive: false, autoDelete: false, arguments: null);
-                //canal.ExchangeDeclare(exchange: configuracao.NomeTopico, type: ExchangeType.Topic, durable: true, arguments: null);
-                //canal.QueueBind(queue: configuracao.NomeFila, exchange: configuracao.NomeTopico, routingKey: string.Empty);
-
-
-                byte[] bufferPayload = Encoding.ASCII.GetBytes(JsonConvert.SerializeObject(order));
-
-                canal.BasicPublish(exchange: _configuracaoMsg.NomeTopico, routingKey: string.Empty, basicProperties: null, body: bufferPayload);
-
-                _logger.LogInformation($"Order id: {order.Id} publicada.");
+                rabbitMQModel.BasicPublish(exchange: configuracaoMsg.NomeTopico, routingKey: string.Empty, basicProperties: prop, body: bufferPayload);
             }
             catch (Exception ex)
             {

@@ -7,6 +7,6 @@ namespace L7.Integracao.Domain.Service.Interface
 {
     public interface ISenderServices
     {
-        void Execute(Order order);
+        void Execute(object notification);
     }
 }

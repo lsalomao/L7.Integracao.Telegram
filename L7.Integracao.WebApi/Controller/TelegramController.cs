@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using L7.Integracao.Domain.Model;
-using L7.Integracao.Domain.Repository;
+﻿using L7.Integracao.Domain.Model;
 using L7.Integracao.Domain.Repository.Interfaces;
-using L7.Integracao.Domain.Service;
 using L7.Integracao.Domain.Service.Interface;
+using L7.Integracao.Domain.ValueObjetc;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
 
 namespace L7.Integracao.WebApi.Controller
 {
@@ -16,27 +13,33 @@ namespace L7.Integracao.WebApi.Controller
     [ApiController]
     public class TelegramController : ControllerBase
     {
-        public readonly IModelRepository<Order> _repository;
-        private readonly ISenderServices _senderServices;
+        private readonly IOrderServices orderServices;
+        private readonly IModelRepository<Order> modelRepository;
 
-        public TelegramController(IModelRepository<Order> repository, ISenderServices senderServices)
+        public TelegramController(IOrderServices orderServices, IModelRepository<Order> modelRepository)
         {
-            _repository = repository;
-            _senderServices = senderServices;
+            this.orderServices = orderServices;
+            this.modelRepository = modelRepository;
         }
 
         // POST: api/Telegram
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Order entity)
+        public async Task<IActionResult> Post([FromBody] OrderVO orderVO)
         {
             try
             {
-                entity.DataCadastro = DateTime.Now;
-                _repository.Add(entity);
+                Order entity = new Order()
+                {                    
+                    Descricao = orderVO.Descricao
+                };
 
-                if (await _repository.SaveChangesAsync())
+                Cliente cliente = new Cliente()
                 {
-                    _senderServices.Execute(entity);
+                    IdTelegram = orderVO.IdTelegram
+                };
+
+                if (await orderServices.CriarOrder(entity, cliente))
+                {
                     return Created($"/api/evento/{entity.Id}", entity);
                 }
             }
@@ -54,7 +57,7 @@ namespace L7.Integracao.WebApi.Controller
         {
             try
             {
-                var result = await _repository.GetById(id);
+                var result = await modelRepository.GetById(id);
 
                 return Ok(result);
             }
@@ -70,7 +73,7 @@ namespace L7.Integracao.WebApi.Controller
         {
             try
             {
-                var result = await _repository.GetAll();
+                var result = await modelRepository.GetAll();
 
                 return Ok(result);
             }

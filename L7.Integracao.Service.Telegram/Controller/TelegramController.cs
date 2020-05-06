@@ -1,5 +1,6 @@
 ﻿using L7.Integracao.Domain.Model;
 using L7.Integracao.Domain.Service;
+using L7.Integracao.Domain.ValueObjetc;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -110,7 +111,7 @@ namespace L7.Integracao.Service.Telegram.Controller
 
             var mensagem = message.Text.Split('|')[1];
 
-            var resultado = apiServices.PublicarOrder(new Order() { Descricao = mensagem });
+            var resultado = apiServices.PublicarOrder(new OrderVO() { Descricao = mensagem });
 
 
             return telegramBot.SendTextMessageAsync(
